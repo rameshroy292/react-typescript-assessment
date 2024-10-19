@@ -152,3 +152,10 @@
 .no-active{
   background-color: transparent;
 }
+.searchResults{
+  font-family: Open Sans;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #282828;
+}
