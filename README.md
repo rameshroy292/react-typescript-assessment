@@ -74,7 +74,7 @@ React Testing Library was used to write unit tests.
 To run tests, use: npm run test.
 
 ### e2e test cases
-ypress was used for end-to-end testing, covering all scenarios.
+cypress was used for end-to-end testing, covering all scenarios.
 To open Cypress: npm run cypress:open.
 To run all tests: npm run cypress:run.
 
