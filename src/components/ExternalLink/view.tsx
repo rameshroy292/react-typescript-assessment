@@ -3,7 +3,7 @@ import { ExternalLinkProps } from "../../interfaces";
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({url}) => {
     return <>
-         <a href={`${url}`} target="_blank" className="link">{url}</a>
+         <a data-testid="external-link" href={`${url}`} target="_blank" className="link">{url}</a>
     </>
 }   
 export default ExternalLink;

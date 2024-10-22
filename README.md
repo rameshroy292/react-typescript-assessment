@@ -44,3 +44,37 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Assumptions & Scenarios:
+
+1) The assessment was completed using React and TypeScript.
+2) The Search and List components were developed independently for modularity.
+3) The Search component auto-focuses when the page loads.
+4) The Suggestions API returns static data. After typing at least two characters, 
+   the API is called to display suggestions.
+5) Clicking the search button triggers the Query Results API, rendering a list of results 
+   with highlighted text based on provided offset values.
+
+# Search component below functions will support
+Suggestion Selection: Supports selecting search suggestions.
+Keyboard Navigation: Allows navigating through suggestions using arrow keys (up/down) and enter.
+Mouse Interaction: Supports mouse hover and selection of suggestions.
+Input Reset: Includes functionality to clear or reset the search input.
+Auto-Focus: The input is auto-focused on page load.
+
+# HighlightText component
+The HighlightText component highlights text within the search results based on specified offset values.
+
+# Responsive web design 
+The design covers breakpoints for screen widths of 1024px, 768px, and 420px.
+The layout adjusts automatically, with a 20px margin on both the left and right sides.
+
+# unit test cases
+React Testing Library was used to write unit tests.
+To run tests, use: npm run test.
+
+# e2e test cases
+ypress was used for end-to-end testing, covering all scenarios.
+To open Cypress: npm run cypress:open.
+To run all tests: npm run cypress:run.
+

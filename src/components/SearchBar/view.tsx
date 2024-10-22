@@ -30,6 +30,7 @@ const SearchBar: React.FC<SearchComponentProps> = ({ searchText, setSearchText, 
         setSearchText(e.target.value);
         if(e.target.value === ''){
             setShowSuggestions(false);
+            setIsFocused(true)
         }
         setShowSuggestions(true);
     }
@@ -51,6 +52,11 @@ const SearchBar: React.FC<SearchComponentProps> = ({ searchText, setSearchText, 
         setSearchText(item);
         setShowSuggestions(false);
         setActive(-1);
+    }
+    //clear search
+    const clearSearch = () => {
+        setSearchText('');
+        setIsFocused(true);
     }
     return <div className="searchContainer">
         <div className="searchDiv">
@@ -75,7 +81,7 @@ const SearchBar: React.FC<SearchComponentProps> = ({ searchText, setSearchText, 
                 onKeyDown={onKeyPressHandler}
                 ref={inputRef}
             />
-            {searchText.length >= 1 ?<img className="close-img" onClick={() => setSearchText('')} src={closeIcon} /> : null}
+            {searchText.length >= 1 ?<img data-testid="close-icon" className="close-img" onClick={clearSearch} src={closeIcon} /> : null}
         </div>
         <div className="searchBtn" data-testid="search-button" onClick={handleSearchClick}>
             <img className="search-img" src={searchIcon} />

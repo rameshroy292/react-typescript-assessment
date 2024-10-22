@@ -4,6 +4,8 @@ import { apiCall } from './utils/fetchAPI';
 import { API_END_POINTS } from './utils/constants';
 import { ListComponentProps } from './interfaces';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const App: React.FC = () => {
   const [searchText, setSearchText] = useState('');
   const [listData, setListData] = useState<ListComponentProps>();
@@ -18,7 +20,7 @@ const App: React.FC = () => {
   }, [searchText])
   const getSuggestions = async () => {
     try {
-      const response = await apiCall(`${API_END_POINTS.suggestions}`, 'GET');
+      const response = await apiCall(`${API_BASE_URL}${API_END_POINTS.suggestions}`, 'GET');
       setSuggestionsList(response?.suggestions);
     } catch (error) {
       console.log(error);
@@ -26,7 +28,7 @@ const App: React.FC = () => {
   }
   const fetchListData = async () => {
     try {
-      const response = await apiCall(`${API_END_POINTS.getList}`, 'GET');
+      const response = await apiCall(`${API_BASE_URL}${API_END_POINTS.getList}`, 'GET');
       setListData(response);
     } catch (error) {
       console.log(error);
