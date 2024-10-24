@@ -40,3 +40,10 @@ export interface SearchComponentProps{
     searchHandler: Function;
     suggestionsList: string[];
 }
+
+export interface PaginationProps {
+    pageSize: number;
+    currentPage: number;
+    totalRecords: number;
+    onPageChange: (page: number) => void;
+}

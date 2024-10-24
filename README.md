@@ -62,6 +62,11 @@ Mouse Interaction: Supports mouse hover and selection of suggestions.
 Input Reset: Includes functionality to clear or reset the search input.
 Auto-Focus: The input is auto-focused on page load.
 
+### Pagination Component
+The pagination component has been integrated to display results, showcasing a maximum of five page numbers at any given time. The displayed page numbers dynamically update based on the user's selection. Additionally, "Previous" and "Next" buttons have been implemented at both the beginning and the end of the pagination list. 
+
+##### Suggestions: we could enhance user experience by implementing infinite scrolling, progressive loading and smooth Transitions 
+
 ### HighlightText component
 The HighlightText component highlights text within the search results based on specified offset values.
 
@@ -74,7 +79,8 @@ React Testing Library was used to write unit tests.
 To run tests, use: npm run test.
 
 ### e2e test cases
-cypress was used for end-to-end testing, covering all scenarios.
-To open Cypress: npm run cypress:open.
-To run all tests: npm run cypress:run.
+cypress was used for end-to-end testing, covering all scenarios. In this application we used cypress 13
+For Cypress 13, the required Node.js versions are:
+To open Cypress: npm run cypress:open.  (by running this command cypress will launch in interactive GUI mode)
+To run all tests: npm run cypress:run.  (This command will execute all tests in project and provide a report in the terminal)
 

@@ -12,7 +12,8 @@ describe("search component test cases", () => {
             "child education",
             "child development account",
             "register childcare"],
-        searchHandler: jest.fn()
+        searchHandler: jest.fn(),
+        handleSearchClick: jest.fn(),
     }
     test('render component', () => {
         render(<SearchComponent {...props} />)
@@ -38,5 +39,30 @@ describe("search component test cases", () => {
         expect(suggestionItems.length).toBe(6);
         expect(suggestionItems[0]).toHaveTextContent('child care');
         expect(suggestionItems[1]).toHaveTextContent('child vaccination');
+    });
+    test('on suggestions click when typing', () => {
+        render(<SearchComponent {...props} />);
+        const inputElement = screen.getByTestId('search-input');
+        fireEvent.change(inputElement, { target: { value: 'ca' } });
+        const suggestionList = screen.getByTestId('suggestion-list');
+        expect(suggestionList).toBeInTheDocument();
+
+        const suggestionItems = screen.getAllByRole('listitem');
+        fireEvent.click(suggestionItems[0]);
+        expect(props.setSearchText).toHaveBeenCalled();
+    });
+    test('test click on close icon', () => {
+        render(<SearchComponent {...props} />);
+        const closeIcon = screen.getByTestId('close-icon');
+        fireEvent.click(closeIcon);
+        expect(props.setSearchText).toHaveBeenCalled();
+    });
+    test('search button clicked', () => {
+        render(<SearchComponent {...props} />);
+        const inputElement = screen.getByTestId('search-input');
+        fireEvent.change(inputElement, { target: { value: 'Child' } });
+        const searchButton = screen.getByTestId('search-button');
+        fireEvent.click(searchButton);
+        expect(props.setSearchText).toHaveBeenCalledWith('Child');
     });
 });
