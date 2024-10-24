@@ -1,5 +1,5 @@
 const listData = {
-  "TotalNumberOfResults": 1,
+  "TotalNumberOfResults": 100,
   "Page": 1,
   "PageSize": 10,
   "ResultItems": [
@@ -95,7 +95,7 @@ describe('Search component', () => {
     cy.get('input[data-testid="search-input"]').should('have.value', 'child care');
   });
 
-  it('show results or pagination after clicking search', () => {
+  it('show results and pagination after clicking search', () => {
     cy.get('input[data-testid="search-input"]').type('ch');
     cy.wait(500);
     cy.get('input[data-testid="search-input"]').type('{downarrow}');
@@ -104,6 +104,9 @@ describe('Search component', () => {
     cy.get('div[data-testid="search-button"]').click();
     cy.wait('@searchResult');
     cy.get('h3[data-testid="show-results"]').contains('results');
+    cy.wait(500);
+    cy.get('.pagination').should('be.visible');
+    cy.get('.pagination-item').should('have.length',7);
     listData?.ResultItems.forEach((item, index) => {
       cy.get('div[data-testid="list-item"]').eq(index).within(() => {
         cy.get('a[data-testid="external-link"]').last().should('have.text', item.DocumentURI);

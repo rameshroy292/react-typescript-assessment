@@ -192,3 +192,37 @@
     margin: 0 20px;
   }
 }
+.show-results{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination-item {
+  margin: 0 5px;
+  padding: 4px 12px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.pagination-item:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.pagination-item.active {
+  background-color: #007bff;
+  color: white;
+  pointer-events: none;
+}
+
+.pagination-item.disabled {
+  pointer-events: none;
+  color: #ccc;
+}
